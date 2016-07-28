@@ -1,0 +1,60 @@
+#! /bin/sh -e
+
+### BEGIN INIT INFO
+# Provides:          cgred
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start and stop the cgred daemon
+# Description:       The cgred daemon is reponsible for assigning processes to
+#                    cgroups.
+### END INIT INFO
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+. /lib/lsb/init-functions
+
+start()
+{
+    log_action_msg "Loading cgroups"
+    /usr/sbin/cgconfigparser -l /etc/cgconfig.conf
+    log_action_msg "Starting cgred service"
+    /usr/sbin/cgrulesengd
+}
+
+stop()
+{
+    # kill cgred
+    killall cgrulesengd || true
+    # remove cgroups
+    /usr/sbin/cgclear -l /etc/cgconfig.conf -e
+}
+
+case "$1" in
+    start)
+        start
+    ;;
+    stop)
+        stop
+    ;;
+    reload|force-reload|restart)
+        stop
+        sleep 1
+        start
+    ;;
+    status)
+        if ps -C cgrulesengd 1>/dev/null 2>/dev/null; then
+            log_action_msg "cgred service is up and running"
+        else
+            log_warning_msg "cgred service is down"
+        fi
+    ;;
+    *)
+        N=/etc/init.d/cgred
+        echo "Usage: $N {start|stop|restart|force-reload}" >&2
+        exit 1
+    ;;
+esac
+
+exit 0
