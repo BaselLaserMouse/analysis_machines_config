@@ -55,7 +55,7 @@ if [ ! -b "$CACHEDEV" ]; then
     # create  RAID partitions
     PARTITIONS=''
     for disk in $*; do
-        sudo sgdisk -n 1 -t 1:FD "$disk";
+        sudo sgdisk -n 1 -t 1:FD00 "$disk";
         PARTITIONS="$PARTITIONS ${disk}1"
     done
 
