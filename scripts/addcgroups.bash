@@ -16,6 +16,12 @@ if [ -z "$(dpkg -l | grep "ii  $CGPKG" || true)" ]; then
     sudo apt-get install "$CGPKG"
 fi
 
+# add kernel boot option to manage swap
+if [ -z "$(grep 'swapaccount=1' /etc/default/grub || true)" ]; then
+  sudo sed -ir 's/^\(GRUB_CMDLINE_LINUX=".*\)"/\1 swapaccount=1"/' /etc/default/grub
+  sudo update-grub
+fi
+
 # create cgroups config file and rules
 CGCONF="/etc/cgconfig.conf"
 if [ ! -e "$CGCONF" ]; then
