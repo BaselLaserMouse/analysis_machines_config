@@ -1,4 +1,6 @@
-# Machines configuration scripts
+# Analysis machines configuration
+
+## Configuration scripts
 
 This repository contains scripts to add some functionalities to Linux
 computers:
@@ -14,7 +16,7 @@ that you understand what you are doing (and what the scripts are doing) before
 using them.
 
 
-# Machines administration script
+## Administration script
 
 This repository also provides a Fabric `fabfile` to execute repetitive tasks to
 administrate the machines.
