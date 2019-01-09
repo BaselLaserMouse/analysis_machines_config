@@ -27,14 +27,28 @@ You can install them with `pip` as a normal user as follows:
 pip3 install --user fabric patchwork
 ```
 
-Then, invoke the tasks listed in the `fabfile` using:
-```
-fab --prompt-for-sudo-password --prompt-for-login-password <task>
-```
-which will ask you your sudo and ssh passwords before executing the task on all
-machines.
+Then, invoke the tasks listed in the `fabfile` using `fab <task>`.
+
+Use `fab --list` to display a list of available tasks.
+
+Some tasks need `sudo` rights: add the `--prompt-for-sudo-password` option to
+enter it before commands execution.
 
 You can restrict the target machine(s) using `-H <hostname>[,<hostname>]`
 option.
 
-Use `fab --list` to display a list of available tasks.
+To authentificate yourself using ssh, you can either:
+
+- use `--prompt-for-login-password` option, to enter your password once
+  everytime your run a task,
+- or use key-based ssh authentification
+    - create an ssh key using `ssh-keygen`
+    - copy it to the machines with `ssh-copy-id -f <key_file.pub> <remote-machine>`
+    - add a section in your `.ssh/config` file to force usage of this key for
+      analysis machines
+    ```
+    Host *.mrsic-flogel.swc.ucl.ac.uk
+      IdentityFile <key_file>
+      User <username>
+    ```
+    - use `ssh-add <key_file>` to unlock it

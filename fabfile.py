@@ -3,6 +3,10 @@ from itertools import chain, repeat
 from fabric import task
 from patchwork import files
 
+# TODO make verbosity configurable
+# import logging
+# logging.basicConfig(level=logging.DEBUG)
+
 # list of available machines, excluding:
 # - the_beast (windows machine),
 # - composter (Petr's machine),
@@ -20,7 +24,6 @@ machines = [
     'sander',
     'grinder',
     'projector',
-    'gluegun',
     'chainsaw',
     'wheelbarrow',
 ]
@@ -28,11 +31,10 @@ machines = [
 hosts = ['{}.mrsic-flogel.swc.ucl.ac.uk'.format(m) for m in machines]
 
 # users mapping, from SWC login to logins found on machines
-# TODO correct for SWC inconsistency (Alex, Andrei)
 swc_users = {
     'adilk': [],
-    'alexf': [],
-    'andreik': ['andreik'],
+    'akhilkevich': ['andreik'],
+    'alexanderf': [],
     'antoninb': ['blota'],
     'dulciev': ['dulciev'],
     'francescag': [],
@@ -60,6 +62,12 @@ swc_users = {
 machines_users = dict(
     chain.from_iterable(zip(v, repeat(k)) for k, v in swc_users.items())
 )
+
+
+@task(hosts=hosts)
+def run(ctx, cmd):
+    """run a command, by default on all analysis machines"""
+    ctx.run(cmd)
 
 
 @task(hosts=hosts)
