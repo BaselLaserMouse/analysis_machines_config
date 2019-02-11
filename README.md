@@ -67,7 +67,8 @@ Here is a quick checklist to install a new analysis machine:
 - install `monitorix` package, following its installation instructions
 - (optional) install proprietary drivers and related libraries (e.g. nvidia
   drivers and cuda)
-- (optional) install other analysis softwares such as `matlab` and `pycharm`
+- (optional) install third-party softwares such as `matlab`, `pycharm` and
+  `slack`
 - add user(s) (+ a private folder in `/mnt/data` and their mount point for
   `winstor`)
 - provide the MAC address and the computer name to the IT, to get name
@@ -113,3 +114,16 @@ curl https://apt.izzysoft.de/izzysoft.asc | sudo apt-key add -
 sudo apt update
 sudo apt install monitorix
 ```
+
+Create a user and (optional) give administrator rights:
+```
+sudo adduser <username>  # create the new user
+sudo adduser <username> sudo  #  add use to sudo group (aka admin rights)
+```
+
+Third-party packages:
+- `slack` can be installed with `snap`
+- `pycharm` can be installed with `snap`, but user needs a license for the
+  professional version (as UCL member we get educational access for free)
+- `matlab` can be downloaded and installed via the MathWorks website, if you
+  have a MathWorkss account bound to UCL (use your UCL email address)
