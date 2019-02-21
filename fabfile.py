@@ -26,6 +26,7 @@ machines = [
     'projector',
     'chainsaw',
     'wheelbarrow',
+    'sledgehammer'
 ]
 
 hosts = ['{}.mrsic-flogel.swc.ucl.ac.uk'.format(m) for m in machines]
@@ -45,6 +46,7 @@ swc_users = {
     'ivanv': ['ivan'],
     'kellyc': ['clancy'],
     'lisah': [],
+    'lauras': ['lauras'],
     'maximer': ['rioma'],
     'michellel': [],
     'mitraj': ['javadzam'],
