@@ -51,6 +51,7 @@ swc_users = {
     'michellel': [],
     'mitraj': ['javadzam'],
     'morganer': ['rothmo', 'morgane'],
+    'naureeng': ['naureeng'],
     'petrz': ['znamensk', 'petr'],
     'rajam': ['raja'],
     'robc': ['rob'],
