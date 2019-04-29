@@ -135,3 +135,52 @@ def add_winstor_all(ctx):
 
     for user in users:
         add_winstor(ctx, user)
+
+
+@task
+def add_swc_homes(ctx, user=None):
+    """add swc-homes mount point for a user"""
+
+    # check user exist on the machine and in SWC
+    homes = ctx.run('ls -1 /home', hide=True).stdout.strip().split('\n')
+    if user not in homes:
+        host = ctx.run('hostname', hide=True).stdout.strip()
+        print('"{}" user does not have a home folder on {}!'
+              .format(user, host))
+        return
+
+    if user not in machines_users:
+        print('"{}" user is not a SWC user!'.format(user))
+        return
+
+    # create user mount point, if needed
+    mount_point = '/mnt/{user}/swc-homes'.format(user=user)
+    files.directory(ctx, mount_point, sudo=True)
+
+    # add a line to /etc/fstab, if needed
+    fstab_path = '/etc/fstab'
+
+    if not files.contains(ctx, fstab_path, mount_point):
+        mount_point_string = (
+            '\n'
+            '# swc-homes storage for {user}\n'
+            '//swc-homes.ad.swc.ucl.ac.uk/{swc} {mount} cifs '
+            'username={swc},vers=3.0,noauto,users 0 0'
+            .format(mount=mount_point, swc=machines_users[user], user=user)
+        )
+
+        # files.append(ctx, fstab_path, mount_point_string, sudo=True)
+        ctx.sudo('sh -c \'echo "{new_lines}" >>{fstab} \''
+                 .format(new_lines=mount_point_string, fstab=fstab_path))
+        print('[fstab] swc-homes added for {}'.format(user))
+
+
+@task(hosts=hosts)
+def add_swc_homes_all(ctx):
+    """add swc-homes mount for all SWC users found"""
+
+    homes = ctx.run('ls -1 /home', hide=True).stdout.strip().split('\n')
+    users = [user for user in homes if user in machines_users]
+
+    for user in users:
+        add_swc_homes(ctx, user)
