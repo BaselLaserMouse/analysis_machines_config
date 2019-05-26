@@ -1,3 +1,4 @@
+import re
 from itertools import chain, repeat
 
 from fabric import task
@@ -184,3 +185,18 @@ def add_swc_homes_all(ctx):
 
     for user in users:
         add_swc_homes(ctx, user)
+
+
+@task(hosts=hosts)
+def btrfs_scrub(ctx):
+    """check state of BTRFS scrub operations"""
+
+    btrfs_pattern = re.compile(' on (.+) type btrfs ')
+    mounts = ctx.run('mount', hide=True).stdout.strip().split('\n')
+    mounts = [btrfs_pattern.search(mount) for mount in mounts]
+    mounts = [mount.groups()[0] for mount in mounts if mount is not None]
+
+    host = ctx.run('hostname', hide=True).stdout.strip()
+    for mount in mounts:
+        print(host, mount)
+        ctx.sudo('btrfs scrub status {}'.format(mount))
