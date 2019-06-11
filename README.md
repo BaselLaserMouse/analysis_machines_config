@@ -87,7 +87,7 @@ sudo apt install iotop htop nload lnav dfc ncdu smartmontools
 # remote session packages
 sudo apt install x2goserver x2goclient
 # other CLI softwares packages
-sudo apt install screen tmux emacs vim-gtk tree ranger curl
+sudo apt install screen tmux emacs vim-gtk tree ranger curl atool
 # other GUI softwares packages
 sudo apt install synaptic gimp inkscape
 ```
