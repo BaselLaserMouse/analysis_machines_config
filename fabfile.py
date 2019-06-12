@@ -27,7 +27,8 @@ machines = [
     'projector',
     'chainsaw',
     'wheelbarrow',
-    'sledgehammer'
+    'sledgehammer',
+    'penknife'
 ]
 
 hosts = ['{}.mrsic-flogel.swc.ucl.ac.uk'.format(m) for m in machines]
