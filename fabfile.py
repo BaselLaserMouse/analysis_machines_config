@@ -12,7 +12,7 @@ from patchwork import files
 # - the_beast (windows machine),
 # - composter (Petr's machine),
 # - pickaxe (Rob's machine),
-# - joiner (TODO see why I can't access),
+# - joiner (Bainsaw's machine),
 # - jigsaw (dead machine :/).
 machines = [
     'gluegun',
@@ -50,6 +50,7 @@ swc_users = {
     'lisah': [],
     'lauras': ['lauras'],
     'maximer': ['rioma'],
+    'majas': ['majas'],
     'michellel': [],
     'mitraj': ['javadzam'],
     'morganer': ['rothmo', 'morgane'],
