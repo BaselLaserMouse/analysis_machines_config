@@ -37,7 +37,7 @@ hosts = ['{}.mrsic-flogel.swc.ucl.ac.uk'.format(m) for m in machines]
 swc_users = {
     'adilk': [],
     'akhilkevich': ['andreik'],
-    'alexanderf': [],
+    'alexanderf': ['alexf'],
     'antoninb': ['blota'],
     'dulciev': ['dulciev'],
     'francescag': [],
