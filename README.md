@@ -63,12 +63,16 @@ Here is a quick checklist to install a new analysis machine:
 - upgrade the system using `apt upgrade`
 - install additional useful softwares using `apt`, see list below
 - configure the `/mnt/data` partition using a btrfs RAID1 configuration
+  or configure `/home` as a separate partition using a btrfs RAID1 configuration
 - configure the `/mnt/microscopy` mount point
 - install `monitorix` package, following its installation instructions
+- install East quadrant printer drivers and add a printer using xfce GUI
+- (optional) install virtualbox, provide a Windows virtual machine and stick a
+  Windows license on the computer case
 - (optional) install proprietary drivers and related libraries (e.g. nvidia
   drivers and cuda)
-- (optional) install third-party softwares such as `matlab`, `pycharm` and
-  `slack`
+- (optional) install third-party softwares such as `matlab`, `pycharm`, `slack`
+  and `miniconda`
 - add user(s) (+ a private folder in `/mnt/data` and their mount point for
   `winstor`)
 - provide the MAC address and the computer name to the IT, to get name
@@ -87,9 +91,9 @@ sudo apt install iotop htop nload lnav dfc ncdu smartmontools
 # remote session packages
 sudo apt install x2goserver x2goclient
 # other CLI softwares packages
-sudo apt install screen tmux emacs vim-gtk tree ranger curl atool
+sudo apt install screen tmux emacs vim-gtk tree ranger curl atool parallel
 # other GUI softwares packages
-sudo apt install synaptic gimp inkscape
+sudo apt install synaptic gimp inkscape grsync
 ```
 
 Configuration of the `/mnt/data` mount point:
@@ -98,6 +102,16 @@ sudo mkfs.btrfs -L data -d raid1 /dev/<drive1> /dev/<drive2> ...
 sudo mkdir /mnt/data
 sudo sh -c 'echo "\n# raid volume\nLABEL=data /mnt/data btrfs defaults 0 0" >> /etc/fstab'
 ```
+
+Configuration of `/home` as a separate partition:
+```
+sudo mkfs.btrfs -L data -d raid1 /dev/<drive1> /dev/<drive2> ...
+sudo sh -c 'echo "\n# raid volume\nLABEL=data /home btrfs defaults,nofail 0 0" >> /etc/fstab'
+```
+Note that main user(s) should be created before this mount point, to be able to
+log in graphically in case the RAID array fails (to get a proper `/home` folder
+on the original OS drive). The `nofail` option prevents the systems from
+blocking if the RAID don't mount, but then errors are quite silent.
 
 Configuration of the `/mnt/microscopy` mount point:
 ```
@@ -115,10 +129,36 @@ sudo apt update
 sudo apt install monitorix
 ```
 
+For the East quadrant printer (Kyocera M6026cdn), download the "Linux UPD driver
+with extended feature support" package from Kyocera's wbesite:
+https://www.kyoceradocumentsolutions.co.za/index/service___support/download_center.false.driver.ECOSYSM6026CDN._.EN.html
+Then unpack it twice and install the ubuntu package:
+```
+aunpack KyoceraLinux*.zip
+aunpack KyoceraLinuxPackages*.tar.gz
+sudo dpkg -i KyoceraLinuxPackages-*/Ubuntu/Global/kyodialog_amd64/kyodialog_6.0-0_amd64.deb
+sudo apt -f install  # fix missing dependencies
+kyodialog6 --telemetry false  # turn off google analytics
+```
+For each user, use `Printers` from the xfce menu to add a printer:
+- select `Network Printer > Internet Printing Protocol (ipp)`
+- enter device URI: `ipp://caxton.swc.ucl.ac.uk:631/printers/swc-L4-E-Quad`
+- press forward and leave default parameters.
+
 Create a user and (optional) give administrator rights:
 ```
 sudo adduser <username>  # create the new user
 sudo adduser <username> sudo  #  add use to sudo group (aka admin rights)
+```
+
+Install virtualbox:
+```
+sudo apt install virtualbox virtualbox-ext-pack virtualbox-guest-addition-iso
+```
+Make sure CPU virtualization is enabled in the BIOS/UEFI.
+Add user(s) to `vboxusers` to allow usb passthrough:
+```
+sudo adduser <username> vboxusers
 ```
 
 Third-party packages:
@@ -126,4 +166,9 @@ Third-party packages:
 - `pycharm` can be installed with `snap`, but user needs a license for the
   professional version (as UCL member we get educational access for free)
 - `matlab` can be downloaded and installed via the MathWorks website, if you
-  have a MathWorkss account bound to UCL (use your UCL email address)
+  have a MathWorks account bound to UCL (use your UCL email address), but note
+  that only staff (not students) can activate a campus license,
+- `miniconda` can be downloaded from the conda website, just make sure to
+  install using `sudo` and the location `/opt/miniconda3`
+  + to configure the shell of a user: `/opt/miniconda3/bin/conda init`
+  + to disable the default environment: `conda config --set auto_activate_base false`
