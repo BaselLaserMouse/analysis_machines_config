@@ -136,9 +136,9 @@ Then unpack it twice and install the ubuntu package:
 ```
 aunpack KyoceraLinux*.zip
 aunpack KyoceraLinuxPackages*.tar.gz
-sudo dpkg -i KyoceraLinuxPackages-*/Ubuntu/Global/kyodialog_amd64/kyodialog_6.0-0_amd64.deb
+sudo dpkg -i KyoceraLinuxPackages-*/Ubuntu/Global/kyodialog_amd64/kyodialog_7.0-0_amd64.deb
 sudo apt -f install  # fix missing dependencies
-kyodialog6 --telemetry false  # turn off google analytics
+kyodialog7 --telemetry false  # turn off google analytics
 ```
 For each user, use `Printers` from the xfce menu to add a printer:
 
