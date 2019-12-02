@@ -81,7 +81,7 @@ Here is a quick checklist to install a new analysis machine:
 Installation of additional softwares:
 ```
 # development packages
-sudo apt install build-essential gfortran bison flex cmake python3-pip python3-dev
+sudo apt install build-essential gfortran bison flex cmake python3-pip python3-dev python3-venv
 # GIT related packages
 sudo apt install git meld tig gitg
 # filesystem packages
