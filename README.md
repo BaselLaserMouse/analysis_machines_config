@@ -141,6 +141,7 @@ sudo apt -f install  # fix missing dependencies
 kyodialog6 --telemetry false  # turn off google analytics
 ```
 For each user, use `Printers` from the xfce menu to add a printer:
+
 - select `Network Printer > Internet Printing Protocol (ipp)`
 - enter device URI: `ipp://caxton.swc.ucl.ac.uk:631/printers/swc-L4-E-Quad`
 - press forward and leave default parameters.
@@ -162,6 +163,7 @@ sudo adduser <username> vboxusers
 ```
 
 Third-party packages:
+
 - `slack` can be installed with `snap`
 - `pycharm` can be installed with `snap`, but user needs a license for the
   professional version (as UCL member we get educational access for free)
