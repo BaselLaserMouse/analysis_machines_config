@@ -64,7 +64,6 @@ Here is a quick checklist to install a new analysis machine:
 - install additional useful softwares using `apt`, see list below
 - configure the `/mnt/data` partition using a btrfs RAID1 configuration
   or configure `/home` as a separate partition using a btrfs RAID1 configuration
-- configure the `/mnt/microscopy` mount point
 - install `monitorix` package, following its installation instructions
 - install East quadrant printer drivers and add a printer using xfce GUI
 - (optional) install virtualbox, provide a Windows virtual machine and stick a
@@ -112,12 +111,6 @@ Note that main user(s) should be created before this mount point, to be able to
 log in graphically in case the RAID array fails (to get a proper `/home` folder
 on the original OS drive). The `nofail` option prevents the systems from
 blocking if the RAID don't mount, but then errors are quite silent.
-
-Configuration of the `/mnt/microscopy` mount point:
-```
-sudo mkdir /mnt/microscopy
-sudo sh -c 'echo "\n# team storage\n//172.24.170.8/public /mnt/microscopy cifs username=datatran,noauto,users,noperm 0 0" >> /etc/fstab'
-```
 
 Install monitorix (following its [documentation](https://www.monitorix.org/doc-debian.html)
 and using [IzzySoft](https://apt.izzysoft.de/ubuntu/dists/generic/) APT
