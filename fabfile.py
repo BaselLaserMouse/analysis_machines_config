@@ -30,7 +30,8 @@ machines = [
     'sledgehammer',
     'penknife',
     'scythe',
-    'sprinkler'
+    'sprinkler',
+    'nailgun'
 ]
 
 hosts = ['{}.mrsic-flogel.swc.ucl.ac.uk'.format(m) for m in machines]
@@ -57,6 +58,7 @@ swc_users = {
     'mitraj': ['javadzam'],
     'morganer': ['rothmo', 'morgane'],
     'naureeng': ['naureeng'],
+    'nicolev': ['nicolev'],
     'petrz': ['znamensk', 'petr'],
     'rajam': ['raja'],
     'robc': ['rob'],
