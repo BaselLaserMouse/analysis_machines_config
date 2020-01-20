@@ -147,7 +147,7 @@ sudo adduser <username> sudo  #  add use to sudo group (aka admin rights)
 
 Install virtualbox:
 ```
-sudo apt install virtualbox virtualbox-ext-pack virtualbox-guest-addition-iso
+sudo apt install virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso
 ```
 Make sure CPU virtualization is enabled in the BIOS/UEFI.
 Add user(s) to `vboxusers` to allow usb passthrough:
