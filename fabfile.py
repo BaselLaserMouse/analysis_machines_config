@@ -39,6 +39,7 @@ hosts = ['{}.mrsic-flogel.swc.ucl.ac.uk'.format(m) for m in machines]
 # users mapping, from SWC login to logins found on machines
 swc_users = {
     'adilk': [],
+    'antoninv': ['antoninv'],
     'akhilkevich': ['andreik'],
     'alexanderf': ['alexf'],
     'antoninb': ['blota'],
