@@ -207,3 +207,12 @@ def btrfs_scrub(ctx):
     for mount in mounts:
         print(host, mount)
         ctx.sudo('btrfs scrub status {}'.format(mount))
+
+@task(hosts=hosts)
+def deploy_vpn(ctx):
+    """install SonicWall's NetExtender"""
+    ctx.sudo('apt install -y expect')
+    ctx.put('vpn/NetExtender.x86_64.tgz')
+    ctx.run('tar zxvf NetExtender.x86_64.tgz')
+    ctx.put('vpn/netextender_install', 'netExtenderClient/')
+    ctx.sudo('sudo sh -c "cd ~/netExtenderClient/ && ./netextender_install"')
