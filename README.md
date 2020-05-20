@@ -157,7 +157,7 @@ sudo adduser <username> vboxusers
 
 Third-party packages:
 
-- `slack` can be installed with `snap`
+- `slack` can be installed with `snap` or downloading their `.deb` package,
 - `pycharm` can be installed with `snap`, but user needs a license for the
   professional version (as UCL member we get educational access for free)
 - `matlab` can be downloaded and installed via the MathWorks website, if you

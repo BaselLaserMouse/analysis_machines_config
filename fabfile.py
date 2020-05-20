@@ -4,10 +4,6 @@ from itertools import chain, repeat
 from fabric import task
 from patchwork import files
 
-# TODO make verbosity configurable
-# import logging
-# logging.basicConfig(level=logging.DEBUG)
-
 # list of available machines, excluding:
 # - the_beast (windows machine),
 # - composter (Petr's machine),
@@ -23,13 +19,13 @@ machines = [
     'roomba',
     'strimmer',
     'sander',
-    'grinder',
-    'projector',
+#    'grinder',
+#    'projector',
     'chainsaw',
     'wheelbarrow',
     'sledgehammer',
     'penknife',
-    'scythe',
+#    'scythe',
     'sprinkler',
     'nailgun'
 ]
