@@ -72,6 +72,16 @@ Recent kernels (4.4.0-143+) are not playing well with Nvidia driver so I changed
 - reboot the machine
 
 
+## 20190827 - X2go issue with matlab
+
+There can be an issue with X2go and matlab, where matlab stops computations (implying plotting and saving figures) whenever the X2go session is disconnected, but happily continues when user reconnects the session.
+
+It seems that the slowdown affects graphical applications in general when x2go is suspended (CLI tools seem fine).
+It is known, see https://bugs.x2go.org/cgi-bin/bugreport.cgi?bug=1342 and https://superuser.com/questions/1415349/running-gui-without-need-of-remote-desktop-connection-on-going.
+
+It can be fixed changing some configuration in `/etc/x2go/x2goagent.options`, replacing `X2GO_NXOPTIONS=""` with `X2GO_NXOPTIONS="sleep=0"`.
+
+
 ## 20190916 - Citrix_receiver
 
 When you install Citrix receiver on Linux (to get access to Desktop@UCL Anywhere), you need to may need to add certificates of root CAs, otherwise it doesn't recognize `https://my.desktop.ucl.ac.uk`as a legitimate server.
@@ -99,6 +109,27 @@ Remarks:
 - use slack .deb package instead of snap (snap version has issues with icon and alt+tab list in xfce)
 - python regular virtual environments will break (python 3.5 to 3.6)
 - check homemade .deb packages (e.g. using checkinstall), may break too
+
+
+## 20191030 - How to install the East quadrant printer on Linux (well Ubuntu)
+
+For the East quadrant printer (Kyocera M6026cdn), download the "Linux UPD driver with extended feature support" package from Kyocera's wbesite:
+
+https://www.kyoceradocumentsolutions.co.za/index/service___support/download_center.false.driver.ECOSYSM6026CDN._.EN.html
+
+Then unpack it twice and install the ubuntu package:
+```
+aunpack KyoceraLinux*.zip
+aunpack KyoceraLinuxPackages*.tar.gz
+sudo dpkg -i KyoceraLinuxPackages-*/Ubuntu/Global/kyodialog_amd64/kyodialog_6.0-0_amd64.deb
+sudo apt -f install  # fix missing dependencies
+kyodialog6 --telemetry false  # turn off google analytics
+```
+
+For each user, use `Printers` from the xfce menu to add a printer:
+- select `Network Printer > Internet Printing Protocol (ipp)`
+- enter device URI: `ipp://caxton.swc.ucl.ac.uk:631/printers/swc-L4-E-Quad`
+- press forward and leave default parameters.
 
 
 ## 20191108 - CUDA 10.0
