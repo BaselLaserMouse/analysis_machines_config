@@ -148,6 +148,7 @@ kyodialog6 --telemetry false  # turn off google analytics
 ```
 
 For each user, use `Printers` from the xfce menu to add a printer:
+
 - select `Network Printer > Internet Printing Protocol (ipp)`
 - enter device URI: `ipp://caxton.swc.ucl.ac.uk:631/printers/swc-L4-E-Quad`
 - press forward and leave default parameters.
