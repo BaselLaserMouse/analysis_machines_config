@@ -26,8 +26,10 @@ To diagnose problems with drives in a btrfs filesystem
 - check scrub status after: `sudo btrfs scrub status <mount point>` to see the number of unrecoverable errors
 - find affected files in `dmesg` messages: `dmesg | grep BTRFS | grep path`
 - check drives health with `smartctl` (installed via `sudo apt install smartmontools`):
- - `sudo smartctl -t short <dev path>` or `sudo smartctl -t long <dev path>` to start short or long test, in the  background
- - `sudo smartctl -a <dev path>` or `sudo smartctl -x <dev path>` to get short or long report about drive and test outcomesTo change a drive in a RAID1 array in BTRFS
+
+    - `sudo smartctl -t short <dev path>` or `sudo smartctl -t long <dev path>` to start short or long test, in the  background
+    - `sudo smartctl -a <dev path>` or `sudo smartctl -x <dev path>` to get short or long report about drive and test outcomesTo change a drive in a RAID1 array in BTRFS
+
 - if possible, attach the new drive without removing the defective one
 - if needed, you can wipe filesystem informations from this new drive using `sudo wipefs -a <dev path of new drive>`
 - use `replace`command, `sudo btrfs replace start <ID> <dev new> <mount point>` where `<ID>` is the btrfs number for the device to replace (can be obtained using `sudo btrfs device usage <mount point>` for example)
@@ -83,20 +85,20 @@ and SSL errors go away.
 
 ## 20190925 - Upgrade from 16.04 to 18.04
 
--   check sources in `/etc/apt/sources.list.d` and remove old ones (and associated softwares)
--   purge nvidia and cuda (including local cuda repo), remove graphics-drivers ppa
--   upgrade using `do-release-upgrade`
--   install HWE to get kernel 5.0
--   install nvidia-430 from GUI
--   install cuda-toolkit-10.0 from local .deb
+- check sources in `/etc/apt/sources.list.d` and remove old ones (and associated softwares)
+- purge nvidia and cuda (including local cuda repo), remove graphics-drivers ppa
+- upgrade using `do-release-upgrade`
+- install HWE to get kernel 5.0
+- install nvidia-430 from GUI
+- install cuda-toolkit-10.0 from local .deb
 
 Remarks:
 
--   x2go is an official packages now, no need for external repository
--   no need for graphics-drivers PPA
--   use slack .deb package instead of snap (snap version has issues with icon and alt+tab list in xfce)
--   python regular virtual environments will break (python 3.5 to 3.6)
--   check homemade .deb packages, may break too
+- x2go is an official packages now, no need for external repository
+- no need for graphics-drivers PPA
+- use slack .deb package instead of snap (snap version has issues with icon and alt+tab list in xfce)
+- python regular virtual environments will break (python 3.5 to 3.6)
+- check homemade .deb packages, may break too
 
 
 ## 20191108 - CUDA 10.0
@@ -139,5 +141,5 @@ Meanwhile, you'll have to do a bit of `cp` or `rsync` just for these ones.
 
 When using tensorflow 2.1, one needs to install cuda-10.1. Following instructions from https://www.tensorflow.org/install/gpu works fine except
 
--   to avoid removing older cuda versions, install `cuda-toolkit-10-1` instead of `cuda-10-1`
--   if you get cublas related errors (crashed the whole python kernel in my case) when executing your code, downgrade it `sudo apt install libcublas10=10.2.1.243-1 libcublas-dev=10.2.1.243-1` (https://github.com/tensorflow/tensorflow/issues/9489\#issuecomment-562394257)
+- to avoid removing older cuda versions, install `cuda-toolkit-10-1` instead of `cuda-10-1`
+- if you get cublas related errors (crashed the whole python kernel in my case) when executing your code, downgrade it `sudo apt install libcublas10=10.2.1.243-1 libcublas-dev=10.2.1.243-1` (https://github.com/tensorflow/tensorflow/issues/9489\#issuecomment-562394257)
