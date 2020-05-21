@@ -20,9 +20,7 @@ able to get, which is \~500MBit/s.Ubuntu 16.04 or 18.04 (with kernel < 5.0)
 
 Command line is always pretty fast (results not reported for xubuntu 18.04 with kernel 5.0 but it was the case), but most interestingly Thunar (the default file browser on xubuntu) is much much faster with 18.04 and recent kernel.
 
-There is a nasty glitch in Thunar (and all gnome related file browser) that make it hangs forever if you copy a tiny file (<1KB I think, but not empty) from Winstor [1].
+There is a nasty glitch in Thunar (and all gnome related file browser) that make it hangs forever if you copy a tiny file (<1KB I think, but not empty) from Winstor (https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=886049).
 
 It's fixed but not (yet) available on Ubuntu 18.04... I am testing this from times to times, so I'll let you know if eventually it's corrected.
 Meanwhile, you'll have to do a bit of `cp` or `rsync` just for these ones.
-
-[1]: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=886049
