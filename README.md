@@ -2,7 +2,7 @@
 
 This repo contains mainly installation documentation (see below), some [notes](NOTES.md) about bugs and fixes, and a [spreadsheet](MACHINES.tsv) summarizing the fleet.
 
-Check the `#analysis_machines` Slack channel of https://mrsicflogelhofer.slack.com/ for more information, historical details, ask for help, etc.
+Check the `#analysis_machines` Slack channel of https://mrsicflogelhofer.slack.com for more information, historical details, ask for help, etc.
 
 ## Installation checklist for a new machine
 
