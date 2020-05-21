@@ -3,6 +3,26 @@
 This file regroups some maintenance notes about the analysis machine.
 
 
+## 20180315 - X2go and Matlab
+
+If you use `matlab2017b` with x2go, you may experience some ugly glitches + numerous red error messages about `java` stuff, as soon as you move the window...
+
+![](imgs/Screenshot_2018-03-15_11-41-20.png)
+
+This problem is due to the version of java used by matlab 2017b (version 1.8) which as a bug.
+You can avoid this annoying behavior by setting an option (disabling some graphics actuallyu) for java in the following ways (pick one :D):
+
+- create a `java.opts` file in your matlab startup folder and put `-Dsun.java2d.xrender=false` in it (this set java option for matlab only (see https://nl.mathworks.com/help/matlab/matlab_env/java-opts-file.html)
+- create a `java.opts` file in `/usr/local/MATLAB/R2017b/bin/glnxa64/` and put `-Dsun.java2d.xrender=false` in it (**warning**: you need to be admin for that and it affects all users)
+- export an environment variable with this option, typing `export _JAVA_OPTIONS='-Dsun.java2d.xrender=false'` in the terminal before starting matlab (or add it to your at the end of your `.bashrc` so you can forget about it ;-))
+- type `_JAVA_OPTIONS='-Dsun.java2d.xrender=false matlab` instead of `matlab` in the terminal, every time want to start matlab (or add an alias in your `.bashrc` and forget about it ;-))
+
+Some references describing the bug:
+
+- https://bugs.x2go.org/cgi-bin/bugreport.cgi?bug=645#15
+- https://bugs.x2go.org/cgi-bin/bugreport.cgi?bug=645#20
+
+
 ## 20180905 - Btrfs
 
 When setting up a new analysis machine, the data partition (traditionally `/mnt/data`) is a btrfs-based RAID.
@@ -72,7 +92,7 @@ Recent kernels (4.4.0-143+) are not playing well with Nvidia driver so I changed
 - reboot the machine
 
 
-## 20190827 - X2go issue with matlab
+## 20190827 - X2go and Matlab
 
 There can be an issue with X2go and matlab, where matlab stops computations (implying plotting and saving figures) whenever the X2go session is disconnected, but happily continues when user reconnects the session.
 
