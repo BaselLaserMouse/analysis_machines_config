@@ -1,7 +1,7 @@
 # Notes
 
-This file regroups some maintenance notes about the analysis machine.
-Original messages have been published on the `#analysis_machines` channel of the Mrsic-Flogel/Hofer labs Slack.
+This file regroups some maintenance notes about the analysis machines.
+Original messages have been published on the `#analysis_machines` Slack channel of https://mrsicflogelhofer.slack.com.
 
 
 ## 20180315 - X2go and Matlab
