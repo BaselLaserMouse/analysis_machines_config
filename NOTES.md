@@ -76,10 +76,10 @@ Recent kernels (4.4.0-143+) are not playing well with Nvidia driver so I changed
 
 When you install Citrix receiver on Linux (to get access to Desktop@UCL Anywhere), you need to may need to add certificates of root CAs, otherwise it doesn't recognize `https://my.desktop.ucl.ac.uk`as a legitimate server.
 How to do this? Just steal Firefox certificates:
-
-    sudo ln -s /usr/share/ca-certificates/mozilla/* /opt/Citrix/ICAClient/keystore/cacerts/
-    sudo c_rehash /opt/Citrix/ICAClient/keystore/cacerts/
-
+```
+sudo ln -s /usr/share/ca-certificates/mozilla/* /opt/Citrix/ICAClient/keystore/cacerts/
+sudo c_rehash /opt/Citrix/ICAClient/keystore/cacerts/
+```
 and SSL errors go away.
 
 
@@ -98,7 +98,7 @@ Remarks:
 - no need for graphics-drivers PPA
 - use slack .deb package instead of snap (snap version has issues with icon and alt+tab list in xfce)
 - python regular virtual environments will break (python 3.5 to 3.6)
-- check homemade .deb packages, may break too
+- check homemade .deb packages (e.g. using checkinstall), may break too
 
 
 ## 20191108 - CUDA 10.0
@@ -111,7 +111,9 @@ otherwise it may complain/refuse to install if your nvidia-driver is too recent 
 
 I made some speed benchmarks, copying a 1GB file from `gluegun` (my machine) to winstor.
 The aim was to test different file browsers and command line tools to see if some were faster than others.Numbers are in MBit/s (divide by 8 to get MBytes/s) to be easy to compare with the maximum I should be
-able to get, which is \~500MBit/s.Ubuntu 16.04 or 18.04 (with kernel < 5.0)
+able to get, which is ~500MBit/s.
+
+Ubuntu 16.04 or 18.04 (with kernel < 5.0)
 
 - Thunar 50 Mbit/s
 - PCManFM 50 Mbit/s
@@ -142,4 +144,4 @@ Meanwhile, you'll have to do a bit of `cp` or `rsync` just for these ones.
 When using tensorflow 2.1, one needs to install cuda-10.1. Following instructions from https://www.tensorflow.org/install/gpu works fine except
 
 - to avoid removing older cuda versions, install `cuda-toolkit-10-1` instead of `cuda-10-1`
-- if you get cublas related errors (crashed the whole python kernel in my case) when executing your code, downgrade it `sudo apt install libcublas10=10.2.1.243-1 libcublas-dev=10.2.1.243-1` (https://github.com/tensorflow/tensorflow/issues/9489\#issuecomment-562394257)
+- if you get cublas related errors (crashed the whole python kernel in my case) when executing your code, downgrade it `sudo apt install libcublas10=10.2.1.243-1 libcublas-dev=10.2.1.243-1` (https://github.com/tensorflow/tensorflow/issues/9489#issuecomment-562394257)
