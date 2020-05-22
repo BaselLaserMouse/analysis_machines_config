@@ -198,3 +198,8 @@ When using tensorflow 2.1, one needs to install cuda-10.1. Following instruction
 
 - to avoid removing older cuda versions, install `cuda-toolkit-10-1` instead of `cuda-10-1`
 - if you get cublas related errors (crashed the whole python kernel in my case) when executing your code, downgrade it `sudo apt install libcublas10=10.2.1.243-1 libcublas-dev=10.2.1.243-1` (https://github.com/tensorflow/tensorflow/issues/9489#issuecomment-562394257)
+
+
+## 20200522 - Winstor
+
+To access symlinks on Winstor, one has to add the `mfsymlinks` option to the mount options of Winstor in `/etc/fstab`.
