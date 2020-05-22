@@ -154,4 +154,18 @@ To authentificate yourself using ssh, you can either:
       IdentityFile <key_file>
       User <username>
     ```
+    - (if next step asks for an authentication agent) run `eval $(ssh-agent -s)`
+      in the same terminal as the next command
     - use `ssh-add <key_file>` to unlock it
+
+Here is an example to check which machines have a fixed kernel version:
+```
+fab run --cmd "hostname && grep GRUB_DEFAULT /etc/default/grub"
+```
+
+And here a command using administrator rights to deploy the VPN client on one
+computer:
+```
+fab --prompt-for-sudo-password -H penknife.mrsic-flogel.swc.ucl.ac.uk deploy-vpn
+
+```

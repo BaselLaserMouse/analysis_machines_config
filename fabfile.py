@@ -19,7 +19,7 @@ machines = [
     'roomba',
     'strimmer',
     'sander',
-#    'grinder',
+    'grinder',
 #    'projector',
     'chainsaw',
     'wheelbarrow',
