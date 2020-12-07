@@ -73,8 +73,7 @@ sudo apt install monitorix
 ```
 
 For the East quadrant printer (Kyocera M6026cdn), download the "Linux UPD driver
-with extended feature support" package from Kyocera's wbesite:
-https://www.kyoceradocumentsolutions.co.za/index/service___support/download_center.false.driver.ECOSYSM6026CDN._.EN.html
+https://www.kyoceradocumentsolutions.co.uk/en/support/downloads.html.name-L2diL2VuL21mcC9UQVNLQUxGQTM1NkNJ.html
 Then unpack it twice and install the ubuntu package:
 ```
 aunpack KyoceraLinux*.zip
