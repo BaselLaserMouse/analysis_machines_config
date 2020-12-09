@@ -21,7 +21,7 @@ scythe	04:d4:c4:54:d0:b9	172.24.170.146	naureeng rioma rob	Naureen	421	btrfs - R
 sprinkler	04:d9:f5:f5:4f:f9	172.24.170.129	alexf hernandom nicolev rob	Nicole	428	same as /	/mnt/data (btrfs - RAID1)	-	RTX 2070	Xubuntu 18.04	-		
 nailgun	04:d9:f5:7e:c2:5c	172.24.170.143	rob hernandom	Hernando	421	same as /	/mnt/data (btrfs - RAID1)	/mnt/fastdata (nvme)	RTX 2070	Xubuntu 18.04	-	nvme drive as /mnt/fastdata	
 toaster	d4:5d:64:3d:29:5b	172.24.170.165	glynism rob	Glynis	-	same as /	/mnt/data	/mnt/data	-	Xubuntu 18.04	-	nvme drive as /mnt/fastdata	
-nailgun	-	-	glynism naureeng	Naureen	-	same as /	/mnt/data	/mnt/data	RTX 2070	Xubuntu 18.04	-	nvme drive as /mnt/fastdata	
+percolator	-	-	glynism naureeng	Naureen	-	same as /	/mnt/data	/mnt/data	RTX 2070	Xubuntu 18.04	-	nvme drive as /mnt/fastdata	
 
 
 jigsaw	-	-	anaconda blota campbela chabrol furutach javadzam kimme petr rioma rob rothmo	Antonin	-	-	-	-	-	-	-	RIP	get back SSD from Antonin
