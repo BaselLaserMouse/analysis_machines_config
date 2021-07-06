@@ -11,7 +11,7 @@ sander	14:dd:a9:d4:e5:be	172.24.170.34	kanamori orsolici rob	Takahiro	421	same a
 composter	9c:5c:8e:74:3a:d5	172.24.170.30	petr orsolici rob tonga	Petr	421	unknown	unknown	unknown	unknown	unknown	-	managed by Petr	
 grinder	78:24:af:82:ac:02	172.24.170.120	alexf andreik blota kamakshi majas orsolici rioma rob	Andrei	421	same as /	/mnt/data (btrfs - RAID10)	/mnt/data2	RTX 2070	Xubuntu 18.04	-		
 projector	9c:5c:8e:90:08:20	172.24.170.31	cowdev00 javadzam kiosk	Mitra	421	same as /	/mnt/data (btrfs - RAID1)	-	GTX 960	Linux Mint 18.1	-	difficult to maintain	reinstall Xubuntu 18.04
-gluegun	ac:9e:17:b5:4b:1b	172.24.170.9	maryams kanamori rgtm02-mic rioma rdjoneva shohei alih	Maxime	421	same as /	/mnt/data (btrfs - RAID1)	/mnt/data2	RTX 2070	Xubuntu 18.04	-		
+gluegun	ac:9e:17:b5:4b:1b	172.24.170.9	glynism maryams kanamori rgtm02-mic rioma rdjoneva shohei alih	Maxime	421	same as /	/mnt/data (btrfs - RAID1)	/mnt/data2	RTX 2070	Xubuntu 18.04	-		
 chainsaw	34:97:f6:db:79:fd	172.24.170.29	afratzl blota chabrol hernandom petr yulin	Antonin	421	same as /	/mnt/data (btrfs - RAID1)	/mnt/analysis_ssd	GTX 1070	Xubuntu 16.04	4.13.0-45	kernel version fixed to please nvidia driver and support RAID card (not needed anymore?), alexf home folder is in /mnt/data	upgrade to 18.04 HWE and remove fixed kernel, figure out what is /dev/sdc, check if CPU fan is in the right direction
 pickaxe	70:4d:7b:6f:41:45	172.24.170.27	rob	Rob	421	unknown	unknown	unknown	unknown	unknown	unknown	managed by Rob	
 wheelbarrow	2c:56:dc:3d:b3:0c	172.24.170.32	alexf andreik blota mlohse rob	mlohse	421	same as /	/mnt/data (btrfs - RAID1)	-	-	Xubuntu 16.04	-		upgrade to 18.04 HWE
