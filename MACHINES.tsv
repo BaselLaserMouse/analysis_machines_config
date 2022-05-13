@@ -1,10 +1,10 @@
 Name	mac address	IP address	existing /home accounts	main user	SWC room	/home	storage drive	fast drive (SSD)	NVIDIA GPU	OS	Fixed kernel	Remarks	TODOs (see notes in below)
-harvester	f8:b1:56:ac:1c:0e	172.24.170.181	swc-admin allwright clancy furutach muird orsolici rob znamensk glynism	Kelly	428	same as /	/mnt/data (hardware RAID)	-	-	Xubuntu 16.04	-		upgrade to 18.04 HWE
-blender	f8:b1:56:ab:e9:e5	172.24.170.25	swc-admin angusc blota chabrol hernandom javadzam morgane muird orsolici petr rob gmattheisen	-	428	same as /	/mnt/data (hardware RAID)	-	-	Xubuntu 16.04	-		upgrade to 18.04 HWE
-jackhammer	f8:b1:56:ac:1e:31	172.24.170.4	swc-admin allwright furutach ivan javadzam kanamori muird rob rioma rothmo naureeng glynism nicolev	-	428	same as /	/mnt/data (hardware RAID)	-	Quadro k620	Xubuntu 18.04	-		
+harvester	f8:b1:56:ac:1c:0e	172.24.170.181	swc-admin allwright clancy furutach muird orsolici rob znamensk	Kelly	428	same as /	/mnt/data (hardware RAID)	-	-	Xubuntu 16.04	-		upgrade to 18.04 HWE
+blender	f8:b1:56:ab:e9:e5	172.24.170.25	swc-admin angusc blota chabrol hernandom javadzam morgane muird orsolici petr rob	-	428	same as /	/mnt/data (hardware RAID)	-	-	Xubuntu 16.04	-		upgrade to 18.04 HWE
+jackhammer	f8:b1:56:ac:1e:31	172.24.170.4	swc-admin allwright furutach ivan javadzam kanamori muird rob rioma rothmo naureeng nicolev	-	428	same as /	/mnt/data (hardware RAID)	-	Quadro k620	Xubuntu 18.04	-		
 the_beast	00:25:90:9B:19:7A	172.24.170.3	admin morganer antonin naureeng	Morgane	428	NA	Data (E:) and Data2 (F:), software RAID1	-	-	Windows 10 LTSC	-		
 lawnmower	78:24:af:82:ad:14	172.24.170.24	clancy orsolici petr rob	Ivana	421	same as /	/mnt/data (btrfs - RAID 1) and /mnt/data2 (btrfs - RAID 0)	-	GT 610	Xubuntu 16.04	4.4.0-142	kernel version fixed to please nvidia driver	upgrade to 18.04 HWE and remove fixed kernel
-roomba	14:dd:a9:d5:a6:a9	172.24.170.26	chabrol clancy cowdev00 furutach hanyu javadzam kanamori meanhwan muird petr rob schneidn glynism	Shohei	421	same as /	/mnt/data (btrfs - RAID 1)	-	GeForce 210	Ubuntu 16.04	-	2 HDDs not used (/dev/sde and /dev/sdf) due to RAID card not supported anymore I think	check and remove /dev/sde and /dev/sdf
+roomba	14:dd:a9:d5:a6:a9	172.24.170.26	chabrol clancy cowdev00 furutach hanyu javadzam kanamori meanhwan muird petr rob schneidn	Shohei	421	same as /	/mnt/data (btrfs - RAID 1)	-	GeForce 210	Ubuntu 16.04	-	2 HDDs not used (/dev/sde and /dev/sdf) due to RAID card not supported anymore I think	check and remove /dev/sde and /dev/sdf
 strimmer	f0:79:59:37:9d:de	172.24.170.28	gasler rob blota	Ioana	421	same as /	/mnt/data (btrfs - RAID1)	-	Quadro 4000	Xubuntu 18.04	-		
 joiner	38:2c:4a:70:25:17	172.24.170.39	rob kiosk voitov	Rob	unknown	unknown	unknown	unknown	unknown	unknown	-	managed by Rob	
 sander	14:dd:a9:d4:e5:be	172.24.170.34	kanamori orsolici rob	Takahiro	421	same as /	/mnt/data (btrfs - RAID1)	-	GTX 1080	Xubuntu 16.04	4.4.0-142	kernel version fixed to please nvidia driver	upgrade to 18.04 HWE and remove fixed kernel
@@ -17,11 +17,11 @@ pickaxe	70:4d:7b:6f:41:45	172.24.170.27	rob	Rob	421	unknown	unknown	unknown	unkn
 wheelbarrow	2c:56:dc:3d:b3:0c	172.24.170.32	alexf andreik blota mlohse rob	mlohse	421	same as /	/mnt/data (btrfs - RAID1)	-	-	Xubuntu 16.04	-		upgrade to 18.04 HWE
 sledgehammer	40:b0:76:5b:2a:b4	172.24.170.157	majas rob	Maja	428	btrfs - RAID1	-	-	-	Xubuntu 18.04	-		
 penknife	30:9c:23:f4:4b:c9	172.24.170.168	antoninv blota rgtm02-mic rob	Antonin V.	421	same as /	/mnt/data (btrfs - no RAID)	-	-	Xubuntu 18.04	-		
-scythe	04:d4:c4:54:d0:b9	172.24.170.146	mehran glynism naureeng rioma rob	Mehran	421	btrfs - RAID1	-	-	RTX 2070	Xubuntu 20.04	-	has an extra 1TB SSD drive (/dev/sdd), not sure what it is currently used for, if used at all (has ntfs and EFI partitions)	
-sprinkler	04:d9:f5:f5:4f:f9	172.24.170.129	alexf hernandom nicolev rob glynism	Nicole	428	same as /	/mnt/data (btrfs - RAID1)	-	RTX 2070	Xubuntu 18.04	-		
+scythe	04:d4:c4:54:d0:b9	172.24.170.146	mehran naureeng rioma rob	Mehran	421	btrfs - RAID1	-	-	RTX 2070	Xubuntu 20.04	-	has an extra 1TB SSD drive (/dev/sdd), not sure what it is currently used for, if used at all (has ntfs and EFI partitions)	
+sprinkler	04:d9:f5:f5:4f:f9	172.24.170.129	alexf hernandom nicolev rob	Nicole	428	same as /	/mnt/data (btrfs - RAID1)	-	RTX 2070	Xubuntu 18.04	-		
 nailgun	04:d9:f5:7e:c2:5c	172.24.170.143	rob hernandom	Hernando	421	same as /	/mnt/data (btrfs - RAID1)	/mnt/fastdata (nvme)	RTX 2070	Xubuntu 18.04	-	nvme drive as /mnt/fastdata	
-toaster	d4:5d:64:3d:29:5b	172.24.170.149	glynism rob	Glynis	-	same as /	/mnt/data	/mnt/data	Turks XT	Xubuntu 18.04	-	nvme drive as /mnt/fastdata	
-percolator	3c:7c:3f:24:e9:9a	-	glynism naureeng	Naureen	-	same as /	/mnt/data	/mnt/data	RTX 2070	Xubuntu 18.04	-	nvme drive as /mnt/fastdata	
+toaster	d4:5d:64:3d:29:5b	172.24.170.149	mashahiron rob	Masahiro	-	same as /	/mnt/data	/mnt/data	Turks XT	Xubuntu 18.04	-	nvme drive as /mnt/fastdata	
+percolator	3c:7c:3f:24:e9:9a	-	naureeng	Naureen	-	same as /	/mnt/data	/mnt/data	RTX 2070	Xubuntu 18.04	-	nvme drive as /mnt/fastdata	
 
 
 jigsaw	-	-	anaconda blota campbela chabrol furutach javadzam kimme petr rioma rob rothmo	Antonin	-	-	-	-	-	-	-	RIP	get back SSD from Antonin
